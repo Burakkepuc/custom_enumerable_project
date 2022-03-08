@@ -78,7 +78,14 @@ module Enumerable
     arr
   end
 
-  
+  #my_inject
+  def my_inject(acc)
+    self.my_each do |el|
+      acc =  yield(acc ,el)
+    end
+    acc
+  end
+
 end
 
 # You will first have to define my_each
