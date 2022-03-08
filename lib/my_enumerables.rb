@@ -16,7 +16,7 @@ module Enumerable
     arr
   end
 
-  # my_all method
+  # my_all? method
   def my_all?
     arr = []
     self.my_each do |el|
@@ -28,7 +28,19 @@ module Enumerable
     return true unless arr.include?(false)
   end
 
-  
+  # my_any? method
+  def my_any?
+    arr = []
+    self.my_each do |el|
+      arr << true if yield(el)
+      arr << false unless yield(el)
+    end
+    p arr
+
+    return true if arr.include?(true)
+    return false unless arr.include?(true)
+  end
+
 end
 
 # You will first have to define my_each
