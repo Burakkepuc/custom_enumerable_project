@@ -10,11 +10,22 @@ module Enumerable
   end
 
   # my_select
-
   def my_select
     arr = []
     self.my_each { |el| arr.push(el) if yield(el) }
     arr
+  end
+
+  # my_all method
+  def my_all?
+    arr = []
+    self.my_each do |el|
+      arr << true if yield(el)
+      arr << false unless yield(el)
+    end
+
+    return false if arr.include?(false)
+    return true unless arr.include?(false)
   end
 
   
