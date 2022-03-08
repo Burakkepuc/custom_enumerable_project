@@ -8,6 +8,16 @@ module Enumerable
       self
     end
   end
+
+  # my_select
+
+  def my_select
+    arr = []
+    self.my_each { |el| arr.push(el) if yield(el) }
+    arr
+  end
+
+  
 end
 
 # You will first have to define my_each
