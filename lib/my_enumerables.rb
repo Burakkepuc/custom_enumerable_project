@@ -53,6 +53,32 @@ module Enumerable
       true
     end
   end
+
+  # my_count
+  def my_count
+    arr = []
+    if block_given?
+      self.my_each do |el|
+        yield(el) && arr << yield(el)
+      end
+      arr.length
+    else
+      self.length
+    end
+  end
+
+  # my_map
+  def my_map
+    arr = []
+    if block_given?
+      self.my_each do |el|
+        arr << yield(el)
+      end
+    end
+    arr
+  end
+
+  
 end
 
 # You will first have to define my_each
